@@ -72,6 +72,18 @@ A colaboradora entrevistada trabalha com pedidos e vendas utilizando o sistema A
 
 Um dos problemas encontrados atualmente se dá na parte da baixa do estoque, que é realizado apenas na retirada do produto, fazendo com que apenas uma unidade de determinado item consiga ser comprada por diferentes clientes, até que a retirada seja feita.
 
+Uma captura de tela do sistema atual utilizado pela empresa pode ser vista na \autoref{fig:sistema_atual_print}
+
+\newpage
+
+\begin{figure}[!htpb]
+    \centering
+    \caption{Captura de tela do sistema atual}
+    \label{fig:sistema_atual_print}
+    \includegraphics[width=\linewidth]{imagens/sistema_atual.jpeg}
+    \legend{Fonte: captura de tela.}
+\end{figure}
+
 \section{Expectativas das funcionalidades de um novo sistema}
 
 Durante a entrevista, foi relatado que a empresa possui as seguintes necessidades:
@@ -89,13 +101,20 @@ Durante a entrevista, foi relatado que a empresa possui as seguintes necessidade
 
 A solução encontrada pelo grupo para o problema atual da empresa é: desenvolver um sistema que possua uma carteira de usuários, além de realizar o gerenciamento do estoque da mesma, sendo capaz de solucionar o problema atual dos pedidos de vendas, realizando uma baixa no estoque no momento do pedido.
 
-\chapter{Requisitos}
+\chapter{Especificações dos requisitos}
+
+
+
+\section{Requisitos funcionais e não funcionais}
 
 Após a entrevista, a dupla foi responsável pelo levantamento e catalogação dos requisitos que o sistema possui, categorizando os mesmos em requisitos funcionais ou requisitos não funcionais.
 
-\section{Requisitos funcionais}
+\subsection{Requisitos funcionais}
 
 De acordo com Fernando Cunha \cite{requisitos-o-que-sao}, os requisitos funcionais são problemas e necessidades resolvidos através do uso de software e, sabendo disso, o grupo propôs uma tabela contendo todos os requisitos funcionais da solução desenvolvida, disponível na \autoref{fig:tabela_req_funcionais}.
+
+\newpage
+
 \begin{figure}[!htpb]
     \centering
     \caption{Tabela de requisitos funcionais da solução encontrada}
@@ -103,6 +122,35 @@ De acordo com Fernando Cunha \cite{requisitos-o-que-sao}, os requisitos funciona
     \includegraphics[width=\linewidth]{imagens/tabela_req_funcionais.png}
     \legend{Fonte: autoria própria.}
 \end{figure}
+
+\subsection{}{Requisitos não funcionais}
+
+Os requisitos não funcionais, segundo Fernando Cunha \cite{requisitos-o-que-sao}, não descrevem o que o sistema deverá possuir, mas sim como o sistema deverá implementar ou fazer algo.
+
+Para que a construção do sistema fosse possível, o grupo organizou uma tabela com alguns requisitos não funcionais que a aplicação deverá possuir, que pode ser visto na \autoref{fig:req_nao_funcionais}.
+
+\begin{figure}[!htpb]
+    \centering
+    \caption{Tabela de requisitos não funcionais da solução encontrada}
+    \label{fig:req_nao_funcionais}
+    \includegraphics[width=\linewidth]{imagens/req_nao_funcionais.png}
+    \legend{Fonte: autoria própria.}
+\end{figure}
+
+\section{Diagrama de caso de uso}
+
+De acordo com um artigo públicado no website LucidChart \cite{diagrama-de-caso-de-uso}, um diagrama de caso de uso é utilizado para representar as interações entre os diferentes tipos de usuários, chamados de atores, com o sistema.
+
+\subsection{Atores do diagrama de caso de uso}
+
+\begin{figure}[!htpb]
+    \centering
+    \caption{Tabela dos atores do diagrama de caso de uso}
+    \label{fig:atores_caso_uso}
+    \includegraphics[width=0.7\linewidth]{imagens/atores_diagrama_caso_uso.png}
+    \legend{Fonte: autoria própria.}
+\end{figure}
+
 
 \printbibliography[heading=abnt]
 
