@@ -1,0 +1,45 @@
+table Cliente {
+  id int [pk]
+  nome varchar(128) [not null]
+  cpf varchar(11) [not null, unique]
+  nascimento date [not null]
+  email varchar(128) [null, default: null]
+  telefone varchar(32) [null, default: null]
+}
+
+table UsuarioInterno {
+  usuario varchar(16) [pk]
+  senha varchar(256) [not null]
+  nome varchar(128) [not null]
+  foto blob [null, default: null]
+  administrador boolean [not null, default: false]
+  ativo boolean [not null, default: true]
+}
+
+table Pedido {
+  codigo int [pk]
+  data date [not null, default: `now()`]
+  id_cliente int [ref: - Cliente.id]
+  id_vendedor int [ref: - UsuarioInterno.usuario]
+}
+
+table Produto {
+  codigo int [pk]
+  titulo varchar(128) [not null]
+  valor int [not null]
+  imagem blob [null, default: null]
+  estoque int [not null, default: 0]
+}
+
+table ProdutoPedido {
+  codigo_pedido int [ref: - Pedido.codigo]
+  codigo_produto int [ref: - Produto.codigo]
+  quantidade int [not null]
+  valorun int [not null]
+  desconto int [not null]
+  devolvido int [not null]
+
+  indexes {
+    (codigo_pedido, codigo_produto) [pk]
+  }
+}
