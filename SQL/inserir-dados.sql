@@ -1,0 +1,1 @@
+INSERT INTO usuariointerno(usuario, senha, nome, administrador) VALUES ('admin', '95d23ba5a256375acfef4a75548b541c671a3d6361179603ccf66cb6328f84e2.4cec293704619345f5f5c0aeff24a9c72a4d628975e766ace808624b4625b210', 'Conta de administrador', true);
