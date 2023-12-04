@@ -27,9 +27,9 @@ export class UserDto {
 
   @IsBoolean()
   @IsOptional()
-  administrador: boolean;
+  administrador?: boolean;
 
   @IsBoolean()
   @IsOptional()
-  ativo: boolean;
+  ativo?: boolean;
 }

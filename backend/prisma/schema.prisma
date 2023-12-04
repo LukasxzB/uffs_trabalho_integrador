@@ -15,3 +15,11 @@ model usuariointerno {
   administrador Boolean @default(false)
   ativo         Boolean @default(true)
 }
+
+model cliente {
+  codigo     Int      @id
+  cpf        String   @unique @db.VarChar(11)
+  nascimento DateTime @db.Date
+  email      String?  @db.VarChar(128)
+  telefone   String?  @db.VarChar(32)
+}
