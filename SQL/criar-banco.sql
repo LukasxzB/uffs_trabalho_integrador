@@ -1,10 +1,12 @@
 CREATE TABLE IF NOT EXISTS cliente (
     codigo SERIAL PRIMARY KEY,
     nome varchar(128) NOT NULL,
-    cpf varchar(11) NOT NULL,
-    nascimento date NOT NULL,
+    cpf varchar(11) NOT NULL UNIQUE,
+    nascimento varchar(128) DEFAULT NULL,
     email varchar(128) DEFAULT NULL,
-    telefone varchar(32) DEFAULT NULL
+    telefone varchar(32) DEFAULT NULL,
+    endereco varchar(128) NOT NULL,
+    ativo boolean NOT NULL DEFAULT true
 );
 
 CREATE TABLE IF NOT EXISTS UsuarioInterno (
@@ -26,20 +28,24 @@ CREATE TABLE IF NOT EXISTS Pedido (
 );
 
 CREATE TABLE IF NOT EXISTS Produto (
-    codigo varchar(13) PRIMARY KEY,
+    codigoid SERIAL PRIMARY KEY,
+    codigo varchar(13) NOT NULL UNIQUE,
     titulo varchar(128) NOT NULL,
     valor int NOT NULL,
-    estoque int NOT NULL DEFAULT 0
+    estoque int NOT NULL DEFAULT 0,
+    ativo boolean NOT NULL DEFAULT true
 );
 
 CREATE TABLE IF NOT EXISTS ProdutoPedido (
+    codigo SERIAL PRIMARY KEY,
     codigo_pedido int NOT NULL,
-    codigo_produto varchar(13) NOT NULL,
+    codigo_produto int NOT NULL,
     quantidade int NOT NULL,
     valorun int NOT NULL,
     desconto int NOT NULL DEFAULT 0,
+    entregue int NOT NULL DEFAULT 0,
     devolvido int NOT NULL DEFAULT 0,
-    PRIMARY KEY (codigo_pedido, codigo_produto),
+    UNIQUE(codigo_pedido, codigo_produto),
     FOREIGN KEY (codigo_pedido) REFERENCES Pedido (codigo),
-    FOREIGN KEY (codigo_produto) REFERENCES Produto (codigo)
+    FOREIGN KEY (codigo_produto) REFERENCES Produto (codigoid)
 );
