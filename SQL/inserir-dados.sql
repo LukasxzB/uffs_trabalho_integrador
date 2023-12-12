@@ -4,10 +4,10 @@ INSERT INTO usuariointerno(usuario, senha, nome, administrador) VALUES
 
 INSERT INTO cliente(cpf, nome, nascimento, endereco, telefone, email) VALUES
 ('87627451623', 'Pedro Augusto', '11-04-2003', 'Rua das Pitangas', '49991142212', NULL),
-('12312837221', 'Carla Geovana', '10-09-2003', 'Embaixo da ponte', NULL, NULL),
-('92382347231', 'Gabriel que foi preso', '01-12-2001', 'Avenida Fostfalen', NULL, '2004briel@gmail'),
+('12312837221', 'Carla Geovana', '10-09-2003', 'Rua Getúlio', NULL, NULL),
+('92382347231', 'Gabriel Vargas', '01-12-2001', 'Avenida Fostfalen', NULL, '2004briel@gmail'),
 ('03945349483', 'Jardesson Parrera', '13-02-2003', 'Rua Batman da Silva', '11911273622', 'jardesson.parera@outlook.com'),
-('02930943203', 'Joao Knakieniznvizx', '08-01-2003', 'A única de nonoai', '84112039231', 'jaokanivete@gmail.com');
+('02930943203', 'Joao Pedro', '08-01-2003', 'A única de nonoai', '84112039231', 'jaokanivete@gmail.com');
 
 INSERT INTO produto(codigo, titulo, valor, estoque) VALUES
 ('3771564368856', 'Adubo Premium', 9990, 923),
