@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from "@nestjs/common";
+import { Body, Controller, Get, ParseIntPipe } from "@nestjs/common";
 import { Param, Post, Put, UseGuards } from "@nestjs/common";
 import { JwtGuard } from "src/auth/guard";
 import { CreateProductDto, ProductDto } from "./dto";
@@ -15,7 +15,7 @@ export class ProductController {
   }
 
   @Get("/:codigo")
-  async getById(@Param("codigo") codigo: string) {
+  async getById(@Param("codigo", new ParseIntPipe()) codigo: number) {
     return await this.productService.getById(codigo);
   }
 
@@ -25,7 +25,10 @@ export class ProductController {
   }
 
   @Put("/:codigo")
-  async update(@Body() dto: Partial<ProductDto>, @Param("codigo") id: string) {
+  async update(
+    @Body() dto: Partial<ProductDto>,
+    @Param("codigo", new ParseIntPipe()) id: number,
+  ) {
     return await this.productService.update(id, dto);
   }
 }

@@ -13,14 +13,16 @@ export class ProductService {
   constructor(private prisma: PrismaService) {}
 
   async getAll() {
-    const products = await this.prisma.$queryRaw<any[]>`SELECT * FROM produto`;
+    const products = await this.prisma.$queryRaw<
+      any[]
+    >`SELECT * FROM produto ORDER BY codigoid ASC`;
     return products;
   }
 
-  async getById(codigo: string) {
+  async getById(codigo: number) {
     const products = await this.prisma.$queryRaw<
       any[]
-    >`SELECT * FROM produto WHERE codigo = ${codigo}`;
+    >`SELECT * FROM produto WHERE codigoid = ${codigo}`;
 
     if (!products || products.length === 0)
       throw new NotFoundException("Produto não encontrado");
@@ -41,7 +43,9 @@ export class ProductService {
         err instanceof Prisma.PrismaClientKnownRequestError &&
         err.code === "P2010"
       ) {
-        throw new BadRequestException("Produto já cadastrado!");
+        throw new BadRequestException(
+          "Produto com este código de barras já cadastrado!",
+        );
       }
 
       console.error(err);
@@ -49,7 +53,7 @@ export class ProductService {
     }
   }
 
-  async update(codigo: string, dto: Partial<ProductDto>) {
+  async update(codigo: number, dto: Partial<ProductDto>) {
     const product = await this.getById(codigo);
 
     const ativo = dto.ativo ?? product.ativo;
@@ -59,7 +63,7 @@ export class ProductService {
 
     try {
       await this.prisma
-        .$queryRaw`UPDATE produto SET titulo = ${titulo}, valor = ${valor}, estoque = ${estoque}, ativo = ${ativo} WHERE codigo = ${codigo}`;
+        .$queryRaw`UPDATE produto SET titulo = ${titulo}, valor = ${valor}, estoque = ${estoque}, ativo = ${ativo} WHERE codigoid = ${codigo};`;
     } catch (err) {
       console.error(err);
       throw new InternalServerErrorException("Ocorreu um erro inesperado!");

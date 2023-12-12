@@ -9,6 +9,7 @@ async function bootstrap() {
   const configService = app.get<ConfigService>(ConfigService);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.use(cookieParser(configService.get("COOKIE_SECRET")));
+  app.enableCors();
   await app.listen(25565);
 }
 bootstrap();

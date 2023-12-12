@@ -12,8 +12,8 @@ export class AuthController {
     @Body() dto: AuthDto,
     @Res({ passthrough: true }) res: Response,
   ) {
-    const { token } = await this.authService.signin(dto);
+    const { token, admin } = await this.authService.signin(dto);
     res.setHeader("Authorization", `Bearer ${token}`);
-    return { token };
+    return { token, admin };
   }
 }

@@ -22,12 +22,9 @@ export class CustomerController {
     await this.customerService.create(dto);
   }
 
-  @Put("/:codigo")
-  async update(
-    @Body() dto: Partial<CustomerDto>,
-    @Param("codigo", new ParseIntPipe()) codigo: number,
-  ) {
-    await this.customerService.update(dto, codigo);
+  @Put("/:cpf")
+  async update(@Body() dto: Partial<CustomerDto>, @Param("cpf") cpf: string) {
+    await this.customerService.update(dto, cpf);
   }
 
   @Get()
@@ -35,8 +32,8 @@ export class CustomerController {
     return await this.customerService.getAll();
   }
 
-  @Get("/:codigo")
-  get(@Param("codigo", new ParseIntPipe()) codigo: number) {
-    return this.customerService.getOneById(codigo);
+  @Get("/:cpf")
+  get(@Param("cpf") cpf: string) {
+    return this.customerService.getOneById(cpf);
   }
 }

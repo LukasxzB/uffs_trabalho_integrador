@@ -1,6 +1,5 @@
-import { Transform } from "class-transformer";
 import {
-  IsDate,
+  IsBoolean,
   IsEmail,
   IsOptional,
   IsString,
@@ -17,9 +16,9 @@ export class CustomerDto {
   @Length(11, 11)
   cpf: string;
 
-  @Transform(({ value }) => value && new Date(value))
-  @IsDate()
-  nascimento: number;
+  @IsString()
+  @MaxLength(128)
+  nascimento: string;
 
   @IsOptional()
   @IsEmail()
@@ -30,4 +29,12 @@ export class CustomerDto {
   @IsString()
   @MaxLength(32)
   telefone?: string;
+
+  @IsString()
+  @MaxLength(128)
+  endereco: string;
+
+  @IsOptional()
+  @IsBoolean()
+  ativo?: boolean;
 }

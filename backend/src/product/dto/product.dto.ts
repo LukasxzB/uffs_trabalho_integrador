@@ -9,6 +9,9 @@ import {
 } from "class-validator";
 
 export class ProductDto {
+  @IsNumber()
+  codigo: number;
+
   @IsString()
   @IsNotEmpty()
   @MaxLength(128)

@@ -17,10 +17,11 @@ export class UserService {
   ) {}
 
   async createUser(dto: CreateUserDto) {
-    const { nome, usuario } = dto;
+    const { nome } = dto;
+    const usuario = dto.usuario.toLowerCase();
     const administrador = dto.administrador ?? false;
     const ativo = dto.ativo ?? true;
-    const senha = this.authService.hashPassword(dto.senha);
+    const senha = this.authService.hashPassword(dto.senha, null);
 
     try {
       await this.prisma
@@ -52,8 +53,13 @@ export class UserService {
 
     const user = users[0];
     const nome = dto.nome ?? user.nome;
-    const senha = dto.senha ?? this.authService.hashPassword(user.senha);
-    const usuario = dto.usuario ?? user.usuario;
+    var senha = user.senha;
+
+    if (dto.senha && dto.senha !== "") {
+      senha = this.authService.hashPassword(dto.senha, null);
+    }
+
+    const usuario = dto.usuario?.toLowerCase() ?? user.usuario;
     const administrador = dto.administrador ?? user.administrador;
     const ativo = dto.ativo ?? user.ativo;
 
@@ -64,5 +70,4 @@ export class UserService {
       throw new InternalServerErrorException("Ocorreu um erro inesperado!");
     }
   }
-
 }
