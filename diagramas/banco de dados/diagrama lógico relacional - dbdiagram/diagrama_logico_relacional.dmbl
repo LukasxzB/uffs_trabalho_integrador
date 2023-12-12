@@ -1,11 +1,11 @@
 table Cliente {
-  id int [pk]
-  cpf varchar(11) [not null, unique]
+  codigo int [pk]
   nome varchar(128) [not null]
+  cpf varchar(11) [not null, unique]
   nascimento varchar(128) [null, default: null]
-  endereco varhcar(128) [not null]
   email varchar(128) [null, default: null]
   telefone varchar(32) [null, default: null]
+  endereco varhcar(128) [not null]
   ativo boolean [not null, default: true]
 }
 
@@ -35,11 +35,13 @@ table Produto {
 }
 
 table ProdutoPedido {
+  codigo int [pk]
   codigo_pedido int [ref: - Pedido.codigo]
   codigo_produto int [ref: - Produto.codigoid]
   quantidade int [not null]
   valorun int [not null]
   desconto int [not null, default: 0]
+  entregue int [not null, default: 0]
   devolvido int [not null, default: 0]
 
   indexes {
