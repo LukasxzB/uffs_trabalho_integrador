@@ -1,0 +1,74 @@
+
+/* Login.css */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaf7f1; 
+}
+
+.login-box {
+    width: 400px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    text-align: center;
+    color: #333;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #00b894;
+    font-size: 12px;
+}
+
+.login-box .submit-btn {
+    width: 100%;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.login-box .submit-btn input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-color: #00b894;
+    cursor: pointer;
+}

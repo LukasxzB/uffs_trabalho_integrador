@@ -1,0 +1,21 @@
+.azul-escuro {
+  background-color: darkblue;
+  color: white;
+}
+
+.informacoes-dashboard {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.informacoes-dashboard th,
+.informacoes-dashboard td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.informacoes-dashboard th {
+  background-color: darkblue;
+  color: white;
+}

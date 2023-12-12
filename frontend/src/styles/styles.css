@@ -1,0 +1,45 @@
+/* styles.css */
+
+/* Classe para estilizar o Navbar */
+.navbar {
+    background-color: #2ecc71; /* Cor verde */
+    color: #fff;
+    padding: 10px;
+  }
+  
+  /* Classe para estilizar a tabela de cursos */
+  .course-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .course-table th, .course-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .course-table th {
+    background-color: #2ecc71; /* Cor verde */
+    color: #fff;
+  }
+  
+  /* Classe para estilizar a tabela de horários */
+  .horario-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .horario-table th, .horario-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .horario-table th {
+    background-color: #2ecc71; /* Cor verde */
+    color: #fff;
+  }
+  

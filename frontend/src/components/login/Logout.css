@@ -1,0 +1,10 @@
+/* src/Logout.css */
+
+.botao-sair {
+  background-color: #b80b0b;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
